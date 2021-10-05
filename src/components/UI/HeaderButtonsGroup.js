@@ -30,7 +30,7 @@ const HeaderButtonsGroup = () => {
         Login
       </button>
       <Link
-        to="/shopping-cart"
+        to="/books-store/shopping-cart"
         className="btn btn-primary position-relative btn-sm me-3"
       >
         <ShoppingCartIcon />

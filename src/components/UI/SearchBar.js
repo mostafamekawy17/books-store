@@ -23,6 +23,7 @@ const SearchBar = () => {
         required
         onChange={searchInputHandler}
         value={search}
+        onKeyPress={(e) => e.key === "Enter" && searchFormHandler()}
       />
       <svg
         onClick={searchFormHandler}

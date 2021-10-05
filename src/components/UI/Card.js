@@ -18,11 +18,15 @@ export const Card = (props) => {
     );
     toast.success(`"${props.title}" added to cart.`);
   };
+
+  const checkImg = props.imagePath
+    ? props.imagePath
+    : "http://1.bp.blogspot.com/-PHugHREQYfQ/VSjGHkAWJ8I/AAAAAAAAARY/Yj_z37D5qzI/s1600/Book%2BIcon%2B1.jpg";
   return (
     <div className="col-6 col-md-3">
       <div className="card">
-        <Link className="non-link" to={`/book/${props.id}`}>
-          <img src={props.imagePath} alt={props.title} />
+        <Link className="non-link" to={`/books-store/book/${props.id}`}>
+          <img src={checkImg} alt={props.title} />
         </Link>
         <div className="card__body">
           <button
@@ -32,7 +36,7 @@ export const Card = (props) => {
           >
             <ShoppingCartIcon /> ADD TO CART
           </button>
-          <Link className="non-link" to={`/book/${props.id}`}>
+          <Link className="non-link" to={`/books-store/book/${props.id}`}>
             <h6 className="card-title">{props.title}</h6>
             <p className="card-text">{props.price} LE</p>
           </Link>

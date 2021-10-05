@@ -20,7 +20,7 @@
   text-align: center;
 }
 
-.footer__layout .footer__social button {
+.footer__layout .footer__social a {
   margin: 20px;
 }
 .footer__layout .footer__info p {
