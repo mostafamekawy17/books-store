@@ -1,0 +1,36 @@
+.navbar__flex {
+  width: 100%;
+  max-width: 70vw;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.288);
+  margin: 0 auto;
+  border-radius: 10em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff;
+}
+
+.navbar__flex a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+}
+
+.navbar__flex a:hover {
+  border: 3px solid #fff;
+  border-color: transparent transparent #fff transparent;
+  padding-right: 3px;
+  border-radius: 5px;
+}
+
+.navbar__flex .active {
+  border: 3px solid #fff;
+  border-color: transparent transparent #fff transparent;
+  padding-right: 3px;
+  border-radius: 5px;
+}

@@ -1,0 +1,25 @@
+.cart__layout {
+  margin: 20px auto;
+  width: 80vw;
+  padding: 20px;
+  max-width: 800px;
+  background-color: #fff;
+  border: 1px solid gray;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.cart__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(27, 27, 27);
+  color: #fff;
+}
+
+@media screen and (max-width: 520px) {
+  .cart__layout {
+    width: 95vw;
+    padding: 5px;
+  }
+}

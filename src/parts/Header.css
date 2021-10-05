@@ -1,0 +1,10 @@
+.header__bg {
+  background-image: url("https://www.britishcouncil.lk/sites/default/files/essential-books.jpg");
+  padding: 1rem 0;
+}
+
+.header__flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
