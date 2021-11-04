@@ -4,7 +4,7 @@ import { ErrorMessage, useField } from "formik";
 const TextField = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   const inValidClass =
-    meta.error && meta.touched && "form-control shadow-none is-invalid";
+    meta.error && meta.touched && "form-control shadow-none is-invalid mb-2";
   return (
     <Fragment>
       <label htmlFor={field.name} className="form-label">
@@ -13,7 +13,9 @@ const TextField = ({ label, ...props }) => {
       <input
         {...props}
         {...field}
-        className={inValidClass ? inValidClass : "form-control shadow-none"}
+        className={
+          inValidClass ? inValidClass : "form-control shadow-none mb-2"
+        }
         required
       />
       <div className="invalid-feedback">

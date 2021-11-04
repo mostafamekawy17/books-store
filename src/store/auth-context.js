@@ -8,6 +8,8 @@ const AuthContext = React.createContext({
   token: "",
   isLoggedIn: false,
   isLoading: false,
+  errorMessage: "",
+  errorMessageHandler: () => {},
   login: (token) => {},
   signup: () => {},
   logout: () => {},
@@ -22,6 +24,7 @@ export const AuthContextProvider = (props) => {
   const initalToken = localStorage.getItem("token");
   const [token, setToken] = useState(initalToken);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const userIsLoggedIn = !!token;
 
@@ -70,10 +73,16 @@ export const AuthContextProvider = (props) => {
     }
   };
 
+  const handleErrorMessage = () => {
+    setErrorMessage("Sorry, your email and your password was incorrect.");
+  };
+
   const contextValue = {
     token: token,
     isLoggedIn: userIsLoggedIn,
     isLoading: loading,
+    errorMessage,
+    errorMessageHandler: handleErrorMessage,
     login: loginHandler,
     signup: signupHandler,
     logout: logoutHandler,

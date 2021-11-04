@@ -68,7 +68,7 @@ const cartSlice = createSlice({
   extraReducers: {
     [getCart.fulfilled]: (state, { payload }) => {
       if (localStorage.getItem("token")) {
-        state.books = payload.books;
+        state.books = payload.books ? payload.books : [];
         state.totalQuantity = payload.totalQuantity;
         state.totalPrice_cart = payload.totalCartPrice;
       } else {

@@ -46,7 +46,7 @@ const Login = () => {
         history.push("/books-store/home");
       })
       .catch((err) => {
-        console.log(err.message);
+        authCtx.errorMessageHandler();
       });
 
   return (
@@ -76,9 +76,12 @@ const Login = () => {
 
             <TextField label="Password" type="password" name="pass" />
 
-            <button type="submit" className="btn btn-primary w-100">
+            <button type="submit" className="btn btn-primary w-100 mb-2">
               Login
             </button>
+            {authCtx.errorMessage && (
+              <div style={{ color: "red" }}>{authCtx.errorMessage}</div>
+            )}
           </Form>
           <hr />
           <p>
