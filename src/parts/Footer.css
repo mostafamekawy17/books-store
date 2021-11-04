@@ -1,0 +1,28 @@
+.footer__layout {
+  position: relative;
+  background-image: url("https://www.britishcouncil.lk/sites/default/files/essential-books.jpg");
+  padding: 1rem 0;
+}
+
+.footer__layout .footer__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 50;
+}
+
+.footer__layout .footer__content {
+  position: relative;
+  z-index: 100;
+  text-align: center;
+}
+
+.footer__layout .footer__social a {
+  margin: 20px;
+}
+.footer__layout .footer__info p {
+  color: #fff;
+}
