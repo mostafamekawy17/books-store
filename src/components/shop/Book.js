@@ -5,6 +5,8 @@ import { useParams } from "react-router";
 import { cartActions } from "../../store/cart-slice";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./Book.css";
 const Book = () => {
   const dispatch = useDispatch();
@@ -18,7 +20,9 @@ const Book = () => {
       .get(`https://www.googleapis.com/books/v1/volumes/${params.id}`)
       .then(function (response) {
         setBook(response.data);
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 500);
       })
       .catch(function (error) {
         console.error(error);
@@ -29,6 +33,12 @@ const Book = () => {
     };
   }, [params.id]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      AOS.init();
+    }, 500);
+  }, []);
+
   const addToCartHandler = () => {
     dispatch(
       cartActions.addBookToCart({
@@ -37,7 +47,7 @@ const Book = () => {
         price: book.saleInfo.listPrice?.amount
           ? book.saleInfo.listPrice.amount
           : 299,
-        imagePath: book?.volumeInfo.imageLinks.thumbnail,
+        imagePath: book?.volumeInfo?.imageLinks.thumbnail,
       })
     );
     toast.success(`"${book?.volumeInfo.title}" added to cart.`);
@@ -56,26 +66,62 @@ const Book = () => {
   if (!loading) {
     return (
       <div className="book__details">
-        <div className="image">
+        <div
+          className="image"
+          data-aos="fade-right"
+          data-aos-once="true"
+          data-aos-duration="1000"
+        >
           <img
-            src={book?.volumeInfo.imageLinks.thumbnail}
+            src={book?.volumeInfo?.imageLinks?.thumbnail}
             height="auto"
-            alt={book?.volumeInfo.title}
+            alt={book?.volumeInfo?.title}
           />
         </div>
         <div className="description">
-          <div className="title">{book?.volumeInfo.title}</div>
-          <div className="des">{book?.volumeInfo.description}</div>
-          <div className="auth">author: {book?.volumeInfo.authors}</div>
-          <div className="price">
+          <div
+            className="title"
+            data-aos="fade-down"
+            data-aos-once="true"
+            data-aos-duration="1000"
+          >
+            {book?.volumeInfo?.title}
+          </div>
+          <div
+            className="des"
+            data-aos="fade-left"
+            data-aos-once="true"
+            data-aos-duration="1000"
+          >
+            {book?.volumeInfo?.description}
+          </div>
+          <div
+            className="auth"
+            data-aos="fade-left"
+            data-aos-once="true"
+            data-aos-duration="1000"
+          >
+            author: {book?.volumeInfo?.authors}
+          </div>
+          <div
+            className="price"
+            data-aos="fade-left"
+            data-aos-once="true"
+            data-aos-duration="1000"
+          >
             <span>
-              {book.saleInfo.listPrice?.amount
-                ? book.saleInfo.listPrice.amount
+              {book?.saleInfo?.listPrice?.amount
+                ? book?.saleInfo?.listPrice?.amount
                 : 299}
             </span>
             <span> LE</span>
           </div>
-          <div className="button">
+          <div
+            className="button"
+            data-aos="fade-up"
+            data-aos-once="true"
+            data-aos-duration="1000"
+          >
             <button className="btn btn-dark" onClick={addToCartHandler}>
               ADD TO CART
             </button>

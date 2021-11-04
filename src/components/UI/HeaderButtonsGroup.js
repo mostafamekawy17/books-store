@@ -26,7 +26,7 @@ const HeaderButtonsGroup = () => {
     authCtx.saveCart();
     authCtx.logout();
     disaptch(userActions.setUserLogoutState());
-    history.push("/books-store/home");
+    history.push("/");
     toast.error("You are logout", {
       position: "top-left",
       autoClose: 5000,
@@ -67,7 +67,7 @@ const HeaderButtonsGroup = () => {
         </button>
       )}
       <Link
-        to="/books-store/shopping-cart"
+        to="/shopping-cart"
         className="btn btn-primary position-relative btn-sm me-3"
       >
         <ShoppingCartIcon />

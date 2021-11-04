@@ -7,7 +7,12 @@ const Cart = () => {
   const Total_cart_price = useSelector((state) => state.cart.totalPrice_cart);
   if (cartBooks.length === 0) {
     return (
-      <section className="cart__layout">
+      <section
+        className="cart__layout"
+        data-aos="fade-down"
+        data-aos-once="true"
+        data-aos-duration="1000"
+      >
         <h1 className="text-center">No Books ☹</h1>
       </section>
     );

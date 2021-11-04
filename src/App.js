@@ -25,29 +25,26 @@ function App() {
   return (
     <Layout>
       {modalModeIsOn && <Modal />}
-      <Route path="/books-store" exact>
-        <Redirect to="/books-store/home" />
-      </Route>
-      <Route path="/books-store/home" exact>
+      <Route path="/" exact>
         <HomePage />
       </Route>
-      <Route path="/books-store/new">
+      <Route path="/new">
         <NewPage />
       </Route>
-      <Route path="/books-store/popular">
+      <Route path="/popular">
         <PopularPage />
       </Route>
-      <Route path="/books-store/shopping-cart">
+      <Route path="/shopping-cart">
         <ShoppingCartPage />
       </Route>
       <Route path="/search/:name">
         <SearchPage />
       </Route>
-      <Route path="/books-store/book/:id">
+      <Route path="/book/:id">
         <BookDetails />
       </Route>
       <Route path="*">
-        <Redirect to="/books-store/home" />
+        <Redirect to="/" />
       </Route>
     </Layout>
   );

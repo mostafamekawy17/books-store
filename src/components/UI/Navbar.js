@@ -3,15 +3,15 @@ import "./Navbar.css";
 const Navbar = () => {
   return (
     <div className="navbar__flex">
-      <NavLink activeClassName="active" to="/books-store/home">
+      <NavLink activeClassName="active" to="/" exact={true}>
         Home
       </NavLink>{" "}
       ----
-      <NavLink activeClassName="active" to="/books-store/new">
+      <NavLink activeClassName="active" to="/new">
         New
       </NavLink>{" "}
       ----
-      <NavLink activeClassName="active" to="/books-store/popular">
+      <NavLink activeClassName="active" to="/popular">
         Popular
       </NavLink>
     </div>

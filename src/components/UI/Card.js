@@ -5,8 +5,13 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Card.css";
 import ShoppingCartIcon from "./Icons/ShoppingCartIcon";
-
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 export const Card = (props) => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const dispatch = useDispatch();
 
   const addToCartHandler = () => {
@@ -26,8 +31,13 @@ export const Card = (props) => {
     : "http://1.bp.blogspot.com/-PHugHREQYfQ/VSjGHkAWJ8I/AAAAAAAAARY/Yj_z37D5qzI/s1600/Book%2BIcon%2B1.jpg";
   return (
     <div className="col-6 col-md-3">
-      <div className="card">
-        <Link className="non-link" to={`/books-store/book/${props.id}`}>
+      <div
+        className="card"
+        data-aos="fade-up"
+        data-aos-once="true"
+        data-aos-duration="1000"
+      >
+        <Link className="non-link" to={`/book/${props.id}`}>
           <img src={checkImg} alt={props.title} />
         </Link>
         <div className="card__body">
@@ -38,7 +48,7 @@ export const Card = (props) => {
           >
             <ShoppingCartIcon /> ADD TO CART
           </button>
-          <Link className="non-link" to={`/books-store/book/${props.id}`}>
+          <Link className="non-link" to={`/book/${props.id}`}>
             <h6 className="card-title">{props.title}</h6>
             <p className="card-text">{props.price} LE</p>
           </Link>

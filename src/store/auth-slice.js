@@ -5,6 +5,7 @@ const authSlice = createSlice({
   initialState: {
     modalMode: false,
     isLogin: true,
+    errorMessage: "",
   },
   reducers: {
     openModal(state, action) {
@@ -13,6 +14,10 @@ const authSlice = createSlice({
     },
     checkLoginMode(state) {
       state.isLogin = !state.isLogin;
+      state.errorMessage = "";
+    },
+    errorMessageHandler(state) {
+      state.errorMessage = "Sorry, your email and your password was incorrect.";
     },
   },
 });

@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../store/auth-slice";
 import TextField from "../UI/TextField";
 import { Formik, Form } from "formik";
@@ -17,6 +17,7 @@ const Login = () => {
       .max(15, "Password is too much characters"),
   });
 
+  const errorMessage = useSelector((state) => state.auth.errorMessage);
   const authCtx = useContext(AuthContext);
   const dispatch = useDispatch();
 
@@ -43,10 +44,10 @@ const Login = () => {
     })
       .then((res) => {
         authCtx.login(res.data.idToken);
-        history.push("/books-store/home");
+        history.push("/");
       })
       .catch((err) => {
-        authCtx.errorMessageHandler();
+        dispatch(authActions.errorMessageHandler());
       });
 
   return (
@@ -79,9 +80,7 @@ const Login = () => {
             <button type="submit" className="btn btn-primary w-100 mb-2">
               Login
             </button>
-            {authCtx.errorMessage && (
-              <div style={{ color: "red" }}>{authCtx.errorMessage}</div>
-            )}
+            {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}
           </Form>
           <hr />
           <p>
